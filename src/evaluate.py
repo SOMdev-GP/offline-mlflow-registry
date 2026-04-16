@@ -4,9 +4,13 @@ from sklearn.metrics import mean_squared_error
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
 
-run_id = input("Enter Run ID: ")
+# automatically fetch latest run
+client = mlflow.tracking.MlflowClient()
+runs = client.search_runs(experiment_ids=["0"])
 
-model = mlflow.sklearn.load_model(f"runs:/{run_id}/model")
+latest_run_id = runs[0].info.run_id
+
+model = mlflow.sklearn.load_model(f"runs:/{latest_run_id}/model")
 
 df = pd.read_csv("data/sample.csv")
 X = df[["feature"]]
@@ -16,4 +20,5 @@ preds = model.predict(X)
 
 mse = mean_squared_error(y, preds)
 
-print("Evaluation MSE:", mse)
+print("Latest Run ID:", latest_run_id)
+print("MSE:", mse)
