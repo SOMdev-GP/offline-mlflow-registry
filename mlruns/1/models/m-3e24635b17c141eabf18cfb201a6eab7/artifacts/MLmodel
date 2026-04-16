@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/Dell/Desktop/Exp 8/mlflow-offline-registry/mlruns/1/models/m-3e24635b17c141eabf18cfb201a6eab7/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.11.1
+model_id: m-3e24635b17c141eabf18cfb201a6eab7
+model_size_bytes: 531
+model_uuid: m-3e24635b17c141eabf18cfb201a6eab7
+prompts: null
+run_id: 22eb61467a954984b0e056708296fbeb
+utc_time_created: '2026-04-16 17:42:29.236747'
